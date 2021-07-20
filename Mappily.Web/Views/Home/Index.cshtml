@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="page-wrapper">
+    <div class="sidebar">
+        <div class="control">
+            <textarea id="input-textarea" class="textarea" placeholder="Map data goes here"></textarea>
+        </div>
+
+        <button class="button apply-button">Apply</button>
+    </div>
+
+    <div class="map" id="map"></div>
+</div>
+
+<style>
+    .page-wrapper {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sidebar {
+        flex: 20%;
+    }
+
+    .map {
+        flex: 80%;
+    }
+</style>
+
+@section Scripts {
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css"/>
+    <script src="lib/leaflet/leaflet.js"></script>
+
+    <script>
+        let map;
+        let markerLayerGroup;
+
+        function initMap() {
+            map = L.map("map").setView([51.505, -0.09], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            markerLayerGroup = L.layerGroup().addTo(map);
+        }
+
+        function addLatLongMarker(lat, long) {
+            L.marker([lat, long]).addTo(markerLayerGroup);
+        }
+
+        function handleInputLine(line) {
+            if (line === "")
+                return;
+
+            let coords = line.split(",");
+            addLatLongMarker(coords[0], coords[1]);
+        }
+
+        function updatePoints() {
+            let input = document.getElementById("input-textarea").value;
+            let lines = input.split("\n");
+
+            markerLayerGroup.clearLayers();
+
+            lines.forEach(function (e) {
+                handleInputLine(e);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function (){
+            initMap();
+
+            Array.from(document.getElementsByClassName("apply-button")).forEach(function (e) {
+                e.addEventListener("click", function () {
+                    updatePoints();
+                });
+            });
+        });
+    </script>
+}

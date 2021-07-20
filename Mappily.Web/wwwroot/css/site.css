@@ -1,0 +1,120 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  min-height: 100%;
+}
+
+.logo-img {
+    margin: 12px;
+}
+
+.logo-text {
+  color: white;
+  font-weight: bolder;
+}
+
+.hero {
+    height: 60vh;
+}
+
+.title, .subtitle {
+  color: white !important;
+}
+
+.subtitle strong {
+  color: white !important;
+}
+
+nav {
+  background: #191102 !important;
+}
+
+.button.is-primary {
+  background-color: #b6244f !important;
+}
+
+.is-primary {
+  background-color: #b6244f !important;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background-color: #222 !important;
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  min-height: 100%;
+}
+
+.footer {
+  background-color: #313131 !important;
+  color: white !important;
+}
+
+.footer p strong {
+  color: white;
+}
+
+.feature-container {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
